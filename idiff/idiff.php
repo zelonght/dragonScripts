@@ -1,5 +1,6 @@
 <?php
 /**
+ * Copyright: http://www.phpied.com/image-diff/
  * Shell script to tell if two images are identical.
  * If not, a third image is written - black background with the different pixels painted green
  * Code partially inspired by and borrowed from http://pear.php.net/Image_Text test cases
