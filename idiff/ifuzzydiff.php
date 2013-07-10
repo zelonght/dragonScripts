@@ -5,7 +5,7 @@
  * If not, a third image is written - black background with the different pixels painted green
  * Code partially inspired by and borrowed from http://pear.php.net/Image_Text test cases
  * Usage: Type in the command line something like: php idiff.php img1.png img2.png result.png
- * Modify by zelonght to support Fuzzy comparison (with threshold) instead of comparing identically pixel per pixel
+ * Modified by zelonght to support Fuzzy comparison (with threshold) instead of comparing identically pixel per pixel
  */
 
 $threshold = 30; /* Threshold of difference for reg, green, blue color */
