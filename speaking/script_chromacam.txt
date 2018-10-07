@@ -1,0 +1,54 @@
+ChromaCam is a Windows desktop application which works with a standard webcam. It's designed to work with all leading video chat and broadcast applications, such as, Skype, Webex, Zoom, Hangouts, OBS, XSplit, etc
+
+ChromaCam works as a virtual camera that uses Personify's Dynamic Green Screen technology. Simply choose ChromaCam as the camera within the app settings and let the magic happen!
+
+In this presentation, we will go through its all main features and show a quick example or demo of how ChromaCam is working with Skype and OBS.
+
+Background feature
+    2000
+    Using ChromaCam you can easily to remove or blur your background.
+    3000
+    You can replace your background with existing backgrounds in library.
+    3000
+    Upgrade to Pro subscription, ChromaCam will allow to add custom backgrounds that you own.
+    6000
+
+Filters feature
+    2000
+    With Filters, you can blur or add extra color to your background.
+    4000
+
+Slides feature
+    2000
+    You can add your slides or presentation file. Upgrade to Pro subscription to unlock the ability to import a presentation with unlimited slides.
+    4000
+    ChromaCam allow you to resize, change position in the Slides so that you can control your presentation with the most convenience.
+    4000
+
+Logo feature
+    2000
+    There is ChromaCam watermark with free subscription.
+    You can control the size of the displayed logo.
+    4000
+    Upgrade to Pro subscription, you can fully control the logo like show or hide or customize it using your own logo.
+    8000
+
+For Settings
+    2000
+    ChromaCam allows you to change camera source you want to work with (in case you have multiple cameras). And you can also change the language you want to display.
+    4000
+    
+ChromaCam also comes with Streamer mode, this is a new feature added recently
+    2000
+    In streamer mode, you can add interesting effects to your background.
+    4000
+    Upgrade to Pro subscription, you can add, delete or custom the effects.
+    6000
+    With Pro mode and Twitch bot enabled, viewers of your stream can trigger effects using commands.
+    Here is the list of existing commands
+    4000
+    And here is an example of how it works in OBS:
+    6000
+    If a viewer typing !money, then you be adding with flying money effect, showing to your viewers.
+    6000
+    That's all for the presentation. Any question don't hesitate to contact us at support@chromacam.me . Thank you for your watching!
