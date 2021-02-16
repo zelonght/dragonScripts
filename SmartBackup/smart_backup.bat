@@ -1,0 +1,3 @@
+@echo off 
+echo Backing up as sync/mirror mode from %1 to %2...
+robocopy.exe %1 %2 /MIR /Z /R:5 /W:20 /MT /ETA /FFT
