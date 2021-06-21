@@ -10,9 +10,7 @@ from shutil import copyfile, copytree, rmtree
 
 def copyAndRename(base_path, oldFolder, newFolder):
     # Step 1: Copy as renaming folder with `_` in prefix.
-    if os.path.exists(os.path.join(base_path, newFolder)):
-        rmtree(os.path.join(base_path, newFolder))
-    print("Copying images asset from {} to {}...".format(oldFolder, newFolder))
+    print("Renaming  images asset from {} to {}...".format(oldFolder, newFolder))
     os.rename(os.path.join(base_path, oldFolder), os.path.join(base_path, newFolder))
 
     # Step 2: modify the htm page with the path changes in step 1.
