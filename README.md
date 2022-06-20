@@ -10,3 +10,5 @@ Dragon shared scripts
 - SmartBackup: a simple .bat file with predefine parameters for Windows's Robocopy to do the job of mirroring things.
 
 - FrontPage4githut-io: MS FrontPage came with paths having prefix with `_` (e.g.: _derived, _overlay, _themes) and they are not compatible or support by github.io (e.g.: 404 return code when accessing in browser). This script will search and rename such those folders and modify the linkings (e.g.: href, src) in htm files to solve that problem.
+
+- download_file: a simple script to test file content serving/downloading from a server. Please caustious as this is kind of stress/load test and may slow down a server during testing.
