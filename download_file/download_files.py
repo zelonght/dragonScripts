@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Syntax: python download_files.py --instances 10 --howlong 30 --save_file 1 --url "https://s1.vnecdn.net/vnexpress/restruct/i/v562/v2_2019/pc/graphics/logo.svg"
+    Syntax: python download_files.py --instances 10 --howlong 30 --save_file 1 --url "https://example-link.to-a-resource/image.svg"
     A simple script to test file content serving/downloading from a server.
     Please caustious as this is kind of stress/load test and may slow down a server during testing.
 '''
