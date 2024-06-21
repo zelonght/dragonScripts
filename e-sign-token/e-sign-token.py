@@ -6,10 +6,6 @@ import argparse
 import subprocess, psutil, time
 from datetime import datetime
 
-"""
-    Author: zelonght
-    Description: an example of using ffmpeg.exe to record and monitor apps
-"""
 
 def kill_proc_tree_by_name(process_name):
     """
@@ -61,7 +57,7 @@ def check_any_apps_running():
     found_app = False
     for app in params.APPS_TO_CHECK: # if any([is_existing_proc_by_name(app) for app in params.APPS_TO_CHECK]):
         if is_existing_proc_by_name(app):
-            verbose("\nFound {} is running!!!...\n".format(app))
+            verbose("Found {} is running!!!...\n\n".format(app))
             found_app = True
             break 
     if found_app:
@@ -72,10 +68,10 @@ def check_any_apps_running():
             mv_filepath = os.path.join(params.CUR_PATH, 'data', 'mv-{}.mkv'.format(current_tt_readable))
             mmpeg_command = params.FFMEG_CMD.format(mv_filepath)
             
-            verbose("... force end orphan ffmpeg.exe first.")
+            verbose("... force end orphan ffmpeg.exe first.\n\n")
             kill_proc_tree_by_name("ffmpeg.exe")
             
-            verbose("... creating new mv at {} and new log at {} using command  `{}`.".format(mv_filepath, log_filepath, mmpeg_command))
+            verbose("... creating new mv at {} and new log at {} using command  `{}`.\n\n".format(mv_filepath, log_filepath, mmpeg_command))
             params.record_started = time.time()
             with open(log_filepath, "w") as out:
                 params.ffmeg_p = subprocess.Popen(
@@ -87,23 +83,28 @@ def check_any_apps_running():
         else:
             verbose('The ffmpeg.exe was running already.')
             if time.time() - params.record_started > params.record_max_hours:
-                verbose("... force ending the session due to over {} seconds.".format(params.record_max_hours))
+                verbose("... force ending the session due to over {} seconds.\n\n".format(params.record_max_hours))
+                for app in params.APPS_TO_CHECK:
+                    verbose('... force closing {}.'.format(app))
+                    kill_proc_tree_by_name(app)
+                verbose('... force closing ffmpeg.exe.')
                 kill_proc_tree(params.ffmeg_p.pid)
                 kill_proc_tree_by_name("ffmpeg.exe") # to be more safe
                 params.ffmeg_p = None
+                verbose('... done and wait for next cycle.\n\n')
             else:
-                verbose("... nothing to do before {} seconds.".format(params.record_max_hours))
+                verbose("... nothing to do before {} seconds.\n\n".format(params.record_max_hours))
     else:
         if params.ffmeg_p is None:
-            verbose('\nNo apps found, ffmpeg.exe is not running, we can take some break!\n')
+            verbose('No apps found, ffmpeg.exe is not running, we can take some break!\n\n')
         else:    
-            verbose('\nNo apps found, ffmpeg.exe is running, time to stop...\n')
+            verbose('No apps found, ffmpeg.exe is running, time to stop...\n')
             #params.ffmeg_p.communicate(input=b'q')
             #params.ffmeg_p.stdin.write(b'q\n')
             kill_proc_tree(params.ffmeg_p.pid)
             kill_proc_tree_by_name("ffmpeg.exe") # to be more safe
             params.ffmeg_p = None
-            verbose('\n... stopped ffmpeg.exe successfully!\n')
+            verbose('... stopped ffmpeg.exe successfully!\n\n')
 
 
 def subprocessSkipCrash():
@@ -128,7 +129,7 @@ def verbose(msg, endline = '\n'):
         Return:
             None
     """
-    sys.stdout.write('{}{}'.format(msg, endline))
+    sys.stdout.write('{}: {}{}'.format(datetime.now().strftime('%Y-%m-%d %H:%M:%S'), msg, endline))
     sys.stdout.flush()
     time.sleep(0.01)
 

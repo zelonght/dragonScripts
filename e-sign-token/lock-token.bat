@@ -5,7 +5,7 @@ taskkill /IM "msedge.exe" /F
 taskkill /IM "ecussign_pro.exe" /F
 taskkill /IM "ffmpeg.exe" /F
 
-taskkill /IM "UltraViewer_Desktop.exe" /F
-start "" "C:\Program Files (x86)\UltraViewer\UltraViewer_Desktop.exe"
+REM taskkill /IM "UltraViewer_Desktop.exe" /F
+REM start "" "C:\Program Files (x86)\UltraViewer\UltraViewer_Desktop.exe"
 
 C:\Windows\System32\rundll32.exe user32.dll, LockWorkStation
