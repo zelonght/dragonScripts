@@ -64,7 +64,7 @@ def check_any_apps_running():
         if params.ffmeg_p is None:
             verbose('Now running ffmpeg.exe as a subprocess...')
             current_tt_readable = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            log_filepath = os.path.join(params.CUR_PATH, 'data', 'log-{}.txt'.format(current_tt_readable))
+            log_filepath = os.path.join(params.CUR_PATH, 'data', 'logs', 'log-{}.txt'.format(current_tt_readable))
             mv_filepath = os.path.join(params.CUR_PATH, 'data', 'mv-{}.mkv'.format(current_tt_readable))
             mmpeg_command = params.FFMEG_CMD.format(mv_filepath)
             

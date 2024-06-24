@@ -10,4 +10,4 @@ REM ensure singleton
 taskkill /IM "ffmpeg.exe" /F
 taskkill /IM "python.exe" /F
 
-py -3 e-sign-token.py >>data\console_%fullstamp%_log.txt
+py -3 e-sign-token.py >>data\logs\console_%fullstamp%_log.txt
