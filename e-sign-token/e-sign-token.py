@@ -84,14 +84,18 @@ def check_any_apps_running():
             verbose('The ffmpeg.exe was running already.')
             if time.time() - params.record_started > params.record_max_hours:
                 verbose("... force ending the session due to over {} seconds.\n\n".format(params.record_max_hours))
-                for app in params.APPS_TO_CHECK:
-                    verbose('... force closing {}.'.format(app))
-                    kill_proc_tree_by_name(app)
-                verbose('... force closing ffmpeg.exe.')
-                kill_proc_tree(params.ffmeg_p.pid)
-                kill_proc_tree_by_name("ffmpeg.exe") # to be more safe
-                params.ffmeg_p = None
-                verbose('... done and wait for next cycle.\n\n')
+                if params.END_SESSION_MODE == 1:
+                    verbose('... force closing session and lock the machine for more safe.')
+                    os.system(os.path.join(params.CUR_PATH, 'lock-token.bat'))
+                else:
+                    for app in params.APPS_TO_CHECK:
+                        verbose('... force closing {}.'.format(app))
+                        kill_proc_tree_by_name(app)
+                    verbose('... force closing ffmpeg.exe.')
+                    kill_proc_tree(params.ffmeg_p.pid)
+                    kill_proc_tree_by_name("ffmpeg.exe") # to be more safe
+                    params.ffmeg_p = None
+                    verbose('... done and wait for next cycle.\n\n')
             else:
                 verbose("... nothing to do before {} seconds.\n\n".format(params.record_max_hours))
     else:
@@ -99,8 +103,6 @@ def check_any_apps_running():
             verbose('No apps found, ffmpeg.exe is not running, we can take some break!\n\n')
         else:    
             verbose('No apps found, ffmpeg.exe is running, time to stop...\n')
-            #params.ffmeg_p.communicate(input=b'q')
-            #params.ffmeg_p.stdin.write(b'q\n')
             kill_proc_tree(params.ffmeg_p.pid)
             kill_proc_tree_by_name("ffmpeg.exe") # to be more safe
             params.ffmeg_p = None
